@@ -359,6 +359,31 @@ router.get('/randomquote', async (req, res, next) => {
 })
 
 
+router.get('/osu/user', async (req, res, next) => {
+	var apikeyInput = req.query.apikey
+	    query = req.query.query
+	
+	if(!apikeyInput) return res.json(loghandler.notpram)
+	if(apikeyInput != 'ZasApi') return res.json(loghandler.invalidKey)
+	if(!query) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter query"})
+	
+	fetch(encodeURI(`https://osu.ppy.sh/api/get_user?k=9784c28686c9239c7d226b5f9d306d56c9e4e64e&u=${query}`))
+	 .then(response => response.json())
+	 .then(data => {
+	var result = data;
+	     res.json({
+		     stastus : true,
+		     creator : `${creator},
+		     result,
+		     message : `jangan lupa follow ${creator}`
+		 })
+	       })
+	       .catch(e => {
+	       	      res.json(loghandler.error)
+})
+})
+
+
 router.get('/infonpm', async (req, res, next) => {
         var apikeyInput = req.query.apikey,
             query = req.query.query
