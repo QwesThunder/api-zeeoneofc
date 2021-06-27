@@ -343,7 +343,7 @@ router.get('/randomquote', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'ZasApi') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/randomquotes`))
+       fetch(encodeURI(`https://zasxcar-api.herokuapp.com/api/randomquotes`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1528,7 +1528,7 @@ router.get('/liriklagu', async (req, res, next) => {
 	if(apikeyInput != 'ZasApi') return res.json(loghandler.invalidKey)
         if(!lagu) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/lirik?search=${lagu}`))
+       fetch(encodeURI(`https://zasxcar-api.herokuapp.com/api/lirik?search=${lagu}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1550,7 +1550,7 @@ router.get('/chordlagu', async (req, res, next) => {
 	if(apikeyInput != 'ZasApi') return res.json(loghandler.invalidKey)
         if(!lagu) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/chord?q=${lagu}`))
+       fetch(encodeURI(`https://zasxcar-api.herokuapp.com/api/chord?q=${lagu}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1570,7 +1570,7 @@ router.get('/random/asmaulhusna', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'ZasApi') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/random/asmaulhusna`))
+       fetch(encodeURI(`https://zasxcar-api.herokuapp.com/api/random/asmaulhusna`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -2492,12 +2492,12 @@ router.get('/yutub/video', async (req, res, next) => {
 	if(apikeyInput != 'ZasApi') return res.json(loghandler.invalidKey)
     if (!url) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/ytv?url=${url}`))
+       fetch(encodeURI(`https://zasxcar-api.herokuapp.com/api/ytv?url=${url}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
              res.json({
-             	author: 'zeeone',
+             	author: 'fix by ZasXCar',
                  result
              })
          })
@@ -2515,12 +2515,12 @@ router.get('/yutub/audio', async (req, res, next) => {
 	if(apikeyInput != 'ZasApi') return res.json(loghandler.invalidKey)
     if (!url) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/yta?url=${url}`))
+       fetch(encodeURI(`https://zasxcar-api.herokuapp.com/api/yta?url=${url}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
              res.json({
-             	author: 'zeeone',
+             	author: 'fix by ZasXCar',
                  result
              })
          })
