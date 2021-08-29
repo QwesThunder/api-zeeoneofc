@@ -2552,27 +2552,6 @@ router.get('/osu/user', async (req, res, next) => {
 })
 })
 
-router.get('/spamcalli', async (req, res, next) => {
-        var apikeyInput = req.query.apikey,
-            notelp = req.query.notelp
-
-	if(!apikeyInput) return res.json(loghandler.notparam)
-	if(apikeyInput != 'ZasApi') return res.json(loghandler.invalidKey)
-    if (!notelp) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter notelp"})
-
-       fetch(encodeURI(`https://zasxcar-api.herokuapp.com/api/spamcall?no=${notelp}`))
-        .then(response => response.json())
-        .then(data => {
-        var result = data;
-             res.json({
-             	author: 'zeeone',
-                 result
-             })
-         })
-         .catch(e => {
-         	res.json(loghandler.error)
-})
-})
 
 router.get('/ig/stalk', async (req, res, next) => {
         var apikeyInput = req.query.apikey,
